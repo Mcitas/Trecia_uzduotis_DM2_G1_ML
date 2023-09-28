@@ -3,6 +3,8 @@
 #include <vector>
 #include <iomanip>
 #include <algorithm>
+#include <time.h>
+#include <cstdlib>
 
 using std::cout;
 using std::cin;
@@ -26,6 +28,24 @@ float vidurkis;
 float mediana;
 };
 
+void generuok (Studentas &x, int &n, float &sum)
+{
+    srand(time(0));
+    n = rand() % 5 + 1; // nuo 1 iki 5
+    cout << "Sugeneruotas pazymiu kiekis: " << n << endl;
+    cout << "Sugeneruoti pazymiai:" << endl;
+    for (int i = 0; i < n; i++)
+    {
+        int p = rand() % 10 + 1; // nuo 1 iki 10
+        x.pazymys.push_back(p);
+        sum += p;
+        cout << p << " ";
+    }
+    x.egzaminas = rand() % 10 + 1;
+    cout << endl;
+    cout << "Egzaminas: " << x.egzaminas << endl;
+}
+
 int main()
 {
     Studentas x;
@@ -40,30 +60,41 @@ int main()
         cin >> x.vardas;
         cout << "Iveskite " << i + 1 << " studento pavarde:" << endl;
         cin >> x.pavarde;
-        cout << "Iveskite " << i + 1 << " studento pazymius:" << endl;
-        //----------------pazymiu ivedimas, kur breaking point - 2 enter paspaudimai-------------------
-        while (true)
+
+        cout << "Ar siam studentui generuoti pazymius? (1 - TAIP, 2 - NE)" << endl;
+        cin >> y;
+        if (y == 1)
         {
-            string input;
-            getline(cin, input);
-            if (input.empty())
+           generuok(x, n, sum);
+        }
+        else
+        {
+            cout << "Iveskite " << i + 1 << " studento pazymius:" << endl;
+
+        //----------------pazymiu ivedimas, kur breaking point - 2 enter paspaudimai-------------------
+            while (true)
             {
-                if (x.pazymys.size() >= 1)
+                string input;
+                getline(cin, input);
+                if (input.empty())
                 {
-                    break;
+                    if (x.pazymys.size() >= 1)
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    int p = std::stoi(input);
+                    n += 1;
+                    x.pazymys.push_back(p);
+                    sum += p;
                 }
             }
-            else
-            {
-                int p = std::stoi(input);
-                n += 1;
-                x.pazymys.push_back(p);
-                sum += p;
-            }
+            //-------------------------------------------------------------------------------------------
+            cout << "Iveskite egzamino rezultata:" << endl;
+            cin >> x.egzaminas;
         }
-        //-------------------------------------------------------------------------------------------
-        cout << "Iveskite egzamino rezultata:" << endl;
-        cin >> x.egzaminas;
         x.vidurkis = (sum)/n;
 
         //----------------------skaiciuojam mediana---------------------------
@@ -83,7 +114,6 @@ int main()
         sum = 0;
         n = 0;
     }
-
     cout << "Pagal ka skaiciuoti galutini bala? (1 - vidurkis, 2 - mediana)" << endl;
     cin >> y;
 
