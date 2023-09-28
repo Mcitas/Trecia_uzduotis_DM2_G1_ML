@@ -30,7 +30,7 @@ int main()
 {
     Studentas x;
     vector <Studentas> kursas;
-    int m, n, y;
+    int m, n = 0, y;
     float sum = 0;
     cout << "Iveskite studentu skaiciu kurse:" << endl;
     cin >> m;
@@ -40,20 +40,31 @@ int main()
         cin >> x.vardas;
         cout << "Iveskite " << i + 1 << " studento pavarde:" << endl;
         cin >> x.pavarde;
-        cout << "Kiek pazymiu turi " << i + 1 << " studentas?" << endl;
-        cin >> n;
-        for (int j = 0; j < n; j++)
+        cout << "Iveskite " << i + 1 << " studento pazymius:" << endl;
+        //----------------pazymiu ivedimas, kur breaking point - 2 enter paspaudimai-------------------
+        while (true)
         {
-            int p;
-            cout << "Iveskite " << j + 1 << " pazymi:" << endl;
-            cin >> p;
-            x.pazymys.push_back(p);
-            sum += p;
-
+            string input;
+            getline(cin, input);
+            if (input.empty())
+            {
+                if (x.pazymys.size() >= 1)
+                {
+                    break;
+                }
+            }
+            else
+            {
+                int p = std::stoi(input);
+                n += 1;
+                x.pazymys.push_back(p);
+                sum += p;
+            }
         }
+        //-------------------------------------------------------------------------------------------
         cout << "Iveskite egzamino rezultata:" << endl;
         cin >> x.egzaminas;
-        x.vidurkis = sum/n;
+        x.vidurkis = (sum)/n;
 
         //----------------------skaiciuojam mediana---------------------------
         sort(x.pazymys.begin(), x.pazymys.end());
@@ -70,6 +81,7 @@ int main()
         kursas.push_back(x);
         x.pazymys.clear();
         sum = 0;
+        n = 0;
     }
 
     cout << "Pagal ka skaiciuoti galutini bala? (1 - vidurkis, 2 - mediana)" << endl;
