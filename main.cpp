@@ -178,30 +178,15 @@ int main()
         Skaityk (m, x, kursas);
     }
 
-    cout << "Pagal ka skaiciuoti galutini bala? (1 - vidurkis, 2 - mediana)" << endl;
-    cin >> y;
+    cout << setw(15) << left << "Vardas" << setw(15) << right << "Pavarde" << setw(20) << right << "Galutinis (Vid.)";
+    cout << setw(20) << right << "Galutinis (Med.)" << endl;
 
-    if (y == 1)
-        {
-            cout << setw(15) << left << "Vardas" << setw(15) << right << "Pavarde" << setw(20) << right << "Galutinis (Vid.)" << endl;
-        }
-        else
-        {
-            cout << setw(15) << left << "Vardas" << setw(15) << right << "Pavarde" << setw(20) << right << "Galutinis (Med.)" << endl;
-        }
-
-    cout << "----------------------------------------------------" << endl;
+    cout << "------------------------------------------------------------------------" << endl;
     for (auto &a: kursas)
     {
         cout << setw(15) << left << a.vardas << setw(15) << right << a.pavarde;
-        if (y == 1)
-        {
-            cout << setw(20) << right << setprecision(2) << fixed << a.vidurkis*0.4 + a.egzaminas*0.6 << endl;
-        }
-        else
-        {
-            cout << setw(20) << right << setprecision(2) << fixed << a.mediana*0.4 + a.egzaminas*0.6 << endl;
-        }
+        cout << setw(20) << right << setprecision(2) << fixed << a.vidurkis*0.4 + a.egzaminas*0.6;
+        cout << setw(20) << right << setprecision(2) << fixed << a.mediana*0.4 + a.egzaminas*0.6 << endl;
     }
     return 0;
 }
