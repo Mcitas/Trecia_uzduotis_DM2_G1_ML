@@ -23,6 +23,8 @@ using std::sort;
 using std::ifstream;
 using std::ofstream;
 using std::cerr;
+using std::swap;
+using std::getline;
 
 struct Studentas {
 string vardas, pavarde;
@@ -32,30 +34,25 @@ float vidurkis;
 float mediana;
 };
 
-void Skaityk (int &m, Studentas x, vector <Studentas> &kursas)
+void Skaityk (int &n1, vector <Studentas> &kursas, int &m)
 {
     ifstream fd ("kursiokai.txt");
-
+    string ignor;
+    Studentas x;
     int paz, sum = 0, n = 0;
-    fd.ignore(80, '\n');
 
+    getline(fd, ignor);
     while (fd >> x.vardas >> x.pavarde)
     {
-        cout << x.vardas << " " << x.pavarde << endl;
-        cout << "Pazymiai:" << endl;
-        for (int i = 0; i < m; i++)
+        for (int i = 0; i < n1; i++)
         {
             fd >> paz;
             x.pazymys.push_back(paz);
             n++;
             sum += paz;
-            cout << paz << " ";
         }
         fd >> x.egzaminas;
-
-        cout << x.egzaminas;
-
-        fd.ignore(80, '\n');
+        getline(fd, ignor);
         x.vidurkis = static_cast<float>(sum)/n;
         //----------------------skaiciuojam mediana---------------------------
         sort(x.pazymys.begin(), x.pazymys.end());
@@ -73,9 +70,23 @@ void Skaityk (int &m, Studentas x, vector <Studentas> &kursas)
         x.pazymys.clear();
         sum = 0;
         n = 0;
-        cout << endl;
+        m++;
     }
     fd.close();
+}
+
+void Rikiuok (vector <Studentas> &kursas, int &m)
+{
+    for (int i = 0; i < m - 1; i++)
+    {
+        for (int j = i + 1; j < m; j++)
+        {
+            if (kursas[i].vardas > kursas[j].vardas || kursas[i].vardas == kursas[j].vardas && kursas[i].pavarde > kursas[j].pavarde)
+            {
+               swap(kursas[i], kursas[j]);
+            }
+        }
+    }
 }
 
 void generuok (Studentas &x, int &n, float &sum)
@@ -100,7 +111,7 @@ int main()
 {
     Studentas x;
     vector <Studentas> kursas;
-    int m = 0, n = 0, y;
+    int m = 0, n = 0, y, n1;
     float sum = 0;
 
     cout << "Kaip ivesite duomenis? (1 - Ranka; 2 - Is failo)" << endl;
@@ -174,9 +185,11 @@ int main()
     else
     {
         cout << "Kiek namu darbu pazymiu?" << endl;
-        cin >> m;
-        Skaityk (m, x, kursas);
+        cin >> n1;
+        Skaityk (n1, kursas, m);
     }
+
+    Rikiuok (kursas, m);
 
     cout << setw(15) << left << "Vardas" << setw(15) << right << "Pavarde" << setw(20) << right << "Galutinis (Vid.)";
     cout << setw(20) << right << "Galutinis (Med.)" << endl;
