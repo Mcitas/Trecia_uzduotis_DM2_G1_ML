@@ -4,13 +4,15 @@ int main()
 {
     Studentas x;
     vector <Studentas> kursas;
-    int m = 0, n = 0, y, n1;
+    int m = 0, n = 0, n1, skaicius;
     int sum = 0;
+    string y;
 
     cout << "Kaip ivesite duomenis? (1 - Ranka; 2 - Is failo)" << endl;
-    cin >> y;
 
-    if (y == 1)
+    skaicius = Skaiciaus_Ivedimas (1, 2);
+
+    if (skaicius == 1)
     {
         cout << "Iveskite studentu skaiciu kurse:" << endl;
         cin >> m;

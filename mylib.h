@@ -1,6 +1,5 @@
 #ifndef MYLIB_H_INCLUDED
 #define MYLIB_H_INCLUDED
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -25,10 +24,10 @@ using std::begin;
 using std::sort;
 using std::ifstream;
 using std::ofstream;
-using std::cerr;
 using std::swap;
 using std::getline;
 using std::stoi;
+using std::cerr;
 
 struct Studentas {
 string vardas, pavarde;
@@ -38,10 +37,11 @@ float vidurkis;
 float mediana;
 };
 
+int Skaiciaus_Ivedimas (int x1, int x2);
 void IrasykRanka (int m, Studentas &x, int &n, int &sum, int i);
 void Skaityk (int &n1, vector <Studentas> &kursas, int &m);
 void VidurkisIrMediana (int &sum, int &n, Studentas &x, vector <Studentas> &kursas);
 void Rikiuok (vector <Studentas> &kursas, int &m);
-void generuok (Studentas &x, int &n, int &sum);
+void Generuok (Studentas &x, int &n, int &sum);
 
 #endif // MYLIB_H_INCLUDED
