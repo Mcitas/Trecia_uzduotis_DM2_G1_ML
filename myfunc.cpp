@@ -74,19 +74,28 @@ void IrasykRanka (int m, Studentas &x, int &n, int &sum, int i)
 }
 
 
-void Skaityk (int &n1, vector <Studentas> &kursas, int &m)
+void Skaityk (vector <Studentas> &kursas, int &m)
 {
-    ifstream fd ("kursiokai.txt");
-    string ignor;
+    ifstream fd ("studentai100000.txt");
+    string header, ignor;
     Studentas x;
-    int paz, sum = 0, n = 0;
+    int paz, sum = 0, n = 0, raidziu_sk = 0, n1, t = 0;
 
     if (!fd.is_open())
     {
     cerr << "Klaida. Failas nerastas." << endl;
     }
 
-    getline(fd, ignor);
+    getline(fd, header);
+    for (char ch : header)
+    {
+        if (isalpha(ch))
+            {
+                raidziu_sk++;
+            }
+    }
+    n1 =(raidziu_sk -6-7-3)/2;
+
     while (fd >> x.vardas >> x.pavarde)
     {
         for (int i = 0; i < n1; i++)
@@ -125,18 +134,14 @@ void VidurkisIrMediana (int &sum, int &n, Studentas &x, vector <Studentas> &kurs
     n = 0;
 }
 
-void Rikiuok (vector <Studentas> &kursas, int &m)
+bool palyginimas(Studentas &a, Studentas &b)
 {
-    for (int i = 0; i < m - 1; i++)
-    {
-        for (int j = i + 1; j < m; j++)
-        {
-            if (kursas[i].vardas > kursas[j].vardas || (kursas[i].vardas == kursas[j].vardas && kursas[i].pavarde > kursas[j].pavarde))
-            {
-               swap(kursas[i], kursas[j]);
-            }
-        }
-    }
+    return a.vardas < b.vardas || a.vardas == b.vardas && a.pavarde < b.pavarde;
+}
+
+void Rikiuok(vector<Studentas> &kursas)
+{
+    sort(kursas.begin(), kursas.end(), palyginimas);
 }
 
 void Generuok (Studentas &x, int &n, int &sum)

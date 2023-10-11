@@ -24,13 +24,11 @@ int main()
     }
     else
     {
-        cout << "Kiek namu darbu pazymiu?" << endl;
-        cin >> n1;
-        Skaityk (n1, kursas, m);
+        Skaityk (kursas, m);
     }
+    Rikiuok (kursas);
 
-    Rikiuok (kursas, m);
-
+    cout << "------------------------------------------------------------------------" << endl;
     cout << setw(15) << left << "Vardas" << setw(15) << right << "Pavarde" << setw(20) << right << "Galutinis (Vid.)";
     cout << setw(20) << right << "Galutinis (Med.)" << endl;
 

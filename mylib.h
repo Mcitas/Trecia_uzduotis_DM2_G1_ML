@@ -39,9 +39,9 @@ float mediana;
 
 int Skaiciaus_Ivedimas (int x1, int x2);
 void IrasykRanka (int m, Studentas &x, int &n, int &sum, int i);
-void Skaityk (int &n1, vector <Studentas> &kursas, int &m);
+void Skaityk (vector <Studentas> &kursas, int &m);
 void VidurkisIrMediana (int &sum, int &n, Studentas &x, vector <Studentas> &kursas);
-void Rikiuok (vector <Studentas> &kursas, int &m);
+void Rikiuok (vector <Studentas> &kursas);
 void Generuok (Studentas &x, int &n, int &sum);
 
 #endif // MYLIB_H_INCLUDED
