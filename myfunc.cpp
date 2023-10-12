@@ -180,6 +180,7 @@ void Failo_generavimas (vector <Studentas> &kursas, int &m, int &n)
 
     cout << "Kiek pazymiu turi kiekvienas studentas?" << endl;
     cin >> n;
+    auto start = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < m; i++)
     {
         x.vardas = "Vardas" + to_string(i + 1);
@@ -189,6 +190,9 @@ void Failo_generavimas (vector <Studentas> &kursas, int &m, int &n)
     }
     Rikiuok (kursas);
     Isvedimas_i_faila (kursas, n, to_string(m));
+    auto end = std::chrono::high_resolution_clock::now(); // Stabdyti
+    std::chrono::duration<double> diff = end-start; // Skirtumas (s)
+    std::cout << "Failo generavimas uztruko: "<< diff.count() << "s" << endl;
 }
 
 void Isvedimas_i_konsole (vector <Studentas> kursas)

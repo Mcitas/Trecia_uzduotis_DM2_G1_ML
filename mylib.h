@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <cstdlib>
 #include <fstream>
+#include <chrono>
 
 using std::cout;
 using std::cin;
@@ -50,4 +51,4 @@ void Isvedimas_i_konsole (vector <Studentas> kursas);
 void Isvedimas_i_faila (vector <Studentas> kursas, int n, string pav);
 void Rusiuok (vector <Studentas> &kursas, vector <Studentas> &kietiakai, vector <Studentas> &vargseliai);
 
-#endif // MYLIB_H_INCLUDED
+#endif
