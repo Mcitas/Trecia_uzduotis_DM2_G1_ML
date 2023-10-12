@@ -3,8 +3,8 @@
 int main()
 {
     Studentas x;
-    vector <Studentas> kursas, kietiakai, vargseliai;
-    int m = 0, n = 0, n1, skaicius;
+    vector <Studentas> kursas, kietiakai, vargseliai, kursas1;
+    int m = 0, n = 0, n1, skaicius, m1 = 0;
     int sum = 0;
     string y;
 
@@ -35,9 +35,27 @@ int main()
         cout << "Kiek studentu kurse?" << endl;
         cin >> m;
         Failo_generavimas (kursas, m, n);
+        m = 0;
+        kursas.clear();
+
+        auto start = std::chrono::high_resolution_clock::now();
+        Skaityk (kursas, m);
+        auto end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> diff = end-start;
+        cout << m << " studentu failo skaitymas uztruko: "<< diff.count() << " s;" << endl;
+
+        start = std::chrono::high_resolution_clock::now();
         Rusiuok (kursas, kietiakai, vargseliai);
+        end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> diff1 = end-start;
+        cout << m << " studentu failo rusiavimas i du vektorius uztruko: "<< diff1.count() << " s;" << endl;
+
+        start = std::chrono::high_resolution_clock::now();
         Isvedimas_i_faila (kietiakai, n, "Kietiakai");
         Isvedimas_i_faila (vargseliai, n, "Vargseliai");
+        end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> diff2 = end-start;
+        cout << m << " studentu failo isvedimas i du failus uztruko: "<< diff2.count() << " s;" << endl;
     }
     return 0;
 }

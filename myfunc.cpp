@@ -77,7 +77,7 @@ void IrasykRanka (int m, Studentas &x, int &n, int &sum, int i)
 
 void Skaityk (vector <Studentas> &kursas, int &m)
 {
-    ifstream fd ("studentai100000.txt");
+    ifstream fd ("Rezultatai10000000.txt");
     string header, ignor;
     Studentas x;
     int paz, sum = 0, n = 0, raidziu_sk = 0, n1, t = 0;
@@ -192,7 +192,7 @@ void Failo_generavimas (vector <Studentas> &kursas, int &m, int &n)
     Isvedimas_i_faila (kursas, n, to_string(m));
     auto end = std::chrono::high_resolution_clock::now(); // Stabdyti
     std::chrono::duration<double> diff = end-start; // Skirtumas (s)
-    std::cout << "Failo generavimas uztruko: "<< diff.count() << "s" << endl;
+    cout << m << " studentu failo generavimas uztruko: "<< diff.count() << " s;" << endl;
 }
 
 void Isvedimas_i_konsole (vector <Studentas> kursas)
@@ -218,8 +218,7 @@ void Isvedimas_i_faila (vector <Studentas> kursas, int n, string pav)
     {
         fr << setw(5) << "ND" + to_string(i+1);
     }
-    fr << setw(7) << right << "Egz.";
-    fr << setw(20) << right << "Galutinis (Vid.)" << endl;
+    fr << setw(7) << right << "Egz." << endl;
     for (auto &a: kursas)
     {
         fr << setw(15) << left << a.vardas << setw(16) << left << a.pavarde;
@@ -227,8 +226,7 @@ void Isvedimas_i_faila (vector <Studentas> kursas, int n, string pav)
         {
             fr << setw(5) << b;
         }
-        fr << setw(7) << right << a.egzaminas;
-        fr << setw(20) << right << setprecision(2) << fixed << a.balasv << endl;
+        fr << setw(7) << right << a.egzaminas << endl;
     }
     fr.close();
 }
