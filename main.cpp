@@ -8,9 +8,9 @@ int main()
     int sum = 0;
     string y;
 
-    cout << "Kaip ivesite duomenis? (1 - Ranka; 2 - Is failo)" << endl;
+    cout << "Kaip ivesite duomenis? (1 - Ranka; 2 - Is failo) Taip pat galite generuoti faila (3 - Generuoti faila)." << endl;
 
-    skaicius = Skaiciaus_Ivedimas (1, 2);
+    skaicius = Skaiciaus_Ivedimas (1, 3);
 
     if (skaicius == 1)
     {
@@ -21,23 +21,20 @@ int main()
             IrasykRanka (m, x, n, sum, i);
             VidurkisIrMediana (sum, n, x, kursas);
         }
+    Rikiuok (kursas);
+    Isvedimas_i_konsole (kursas);
+    }
+    else if (skaicius == 2)
+    {
+        Skaityk (kursas, m);
+        Rikiuok (kursas);
+        Isvedimas_i_konsole (kursas);
     }
     else
     {
-        Skaityk (kursas, m);
-    }
-    Rikiuok (kursas);
-
-    cout << "------------------------------------------------------------------------" << endl;
-    cout << setw(15) << left << "Vardas" << setw(15) << right << "Pavarde" << setw(20) << right << "Galutinis (Vid.)";
-    cout << setw(20) << right << "Galutinis (Med.)" << endl;
-
-    cout << "------------------------------------------------------------------------" << endl;
-    for (auto &a: kursas)
-    {
-        cout << setw(15) << left << a.vardas << setw(15) << right << a.pavarde;
-        cout << setw(20) << right << setprecision(2) << fixed << a.vidurkis*0.4 + a.egzaminas*0.6;
-        cout << setw(20) << right << setprecision(2) << fixed << a.mediana*0.4 + a.egzaminas*0.6 << endl;
+        cout << "Kiek studentu kurse?" << endl;
+        cin >> m;
+        Failo_generavimas (kursas, m);
     }
     return 0;
 }

@@ -5,7 +5,6 @@
 #include <vector>
 #include <iomanip>
 #include <algorithm>
-#include <time.h>
 #include <cstdlib>
 #include <fstream>
 
@@ -28,11 +27,12 @@ using std::swap;
 using std::getline;
 using std::stoi;
 using std::cerr;
+using std::to_string;
 
 struct Studentas {
 string vardas, pavarde;
 vector <int> pazymys;
-float egzaminas;
+int egzaminas;
 float vidurkis;
 float mediana;
 };
@@ -42,6 +42,9 @@ void IrasykRanka (int m, Studentas &x, int &n, int &sum, int i);
 void Skaityk (vector <Studentas> &kursas, int &m);
 void VidurkisIrMediana (int &sum, int &n, Studentas &x, vector <Studentas> &kursas);
 void Rikiuok (vector <Studentas> &kursas);
-void Generuok (Studentas &x, int &n, int &sum);
+void Generuok (Studentas &x, int &n, int &sum, int loginis, int randomizer);
+void Failo_generavimas (vector <Studentas> &kursas, int &m);
+void Isvedimas_i_konsole (vector <Studentas> kursas);
+void Isvedimas_i_faila (vector <Studentas> kursas, int n, int m);
 
 #endif // MYLIB_H_INCLUDED

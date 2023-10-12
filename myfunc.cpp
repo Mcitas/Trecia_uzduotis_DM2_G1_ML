@@ -42,10 +42,11 @@ void IrasykRanka (int m, Studentas &x, int &n, int &sum, int i)
     int skaicius = Skaiciaus_Ivedimas (1, 2);
     if (skaicius == 1)
     {
-        Generuok(x, n, sum);
+        Generuok(x, n, sum, 1, i);
     }
     else
     {
+        n = 0;
         cout << "Iveskite " << i + 1 << " studento pazymius:" << endl;
         //----------------pazymiu ivedimas, kur breaking point - 2 enter paspaudimai-------------------
         while (true)
@@ -131,7 +132,6 @@ void VidurkisIrMediana (int &sum, int &n, Studentas &x, vector <Studentas> &kurs
     kursas.push_back(x);
     x.pazymys.clear();
     sum = 0;
-    n = 0;
 }
 
 bool palyginimas(Studentas &a, Studentas &b)
@@ -144,20 +144,85 @@ void Rikiuok(vector<Studentas> &kursas)
     sort(kursas.begin(), kursas.end(), palyginimas);
 }
 
-void Generuok (Studentas &x, int &n, int &sum)
+void Generuok (Studentas &x, int &n, int &sum, int loginis, int randomizer)
 {
-    srand(time(0));
+    srand(randomizer);
+    if (loginis == 1)
+    {
     n = rand() % 5 + 1; // nuo 1 iki 5
     cout << "Sugeneruotas pazymiu kiekis: " << n << endl;
     cout << "Sugeneruoti pazymiai:" << endl;
+    }
     for (int i = 0; i < n; i++)
     {
         int p = rand() % 10 + 1; // nuo 1 iki 10
         x.pazymys.push_back(p);
         sum += p;
+        if (loginis == 1)
+        {
         cout << p << " ";
+        }
     }
     x.egzaminas = rand() % 10 + 1;
+    if (loginis == 1)
+    {
     cout << endl;
     cout << "Egzaminas: " << x.egzaminas << endl;
+    }
+}
+
+void Failo_generavimas (vector <Studentas> &kursas, int &m)
+{
+    Studentas x;
+    int sum, n;
+
+    cout << "Kiek pazymiu turi kiekvienas studentas?" << endl;
+    cin >> n;
+    for (int i = 0; i < m; i++)
+    {
+        x.vardas = "Vardas" + to_string(i + 1);
+        x.pavarde = "Pavarde" + to_string(i + 1);
+        Generuok (x, n, sum, 2, i);
+        VidurkisIrMediana (sum, n, x, kursas);
+    }
+    Rikiuok (kursas);
+    Isvedimas_i_faila (kursas, n, m);
+}
+
+void Isvedimas_i_konsole (vector <Studentas> kursas)
+{
+    cout << "------------------------------------------------------------------------" << endl;
+    cout << setw(15) << left << "Vardas" << setw(15) << right << "Pavarde" << setw(20) << right << "Galutinis (Vid.)";
+    cout << setw(20) << right << "Galutinis (Med.)" << endl;
+
+    cout << "------------------------------------------------------------------------" << endl;
+    for (auto &a: kursas)
+    {
+        cout << setw(15) << left << a.vardas << setw(15) << right << a.pavarde;
+        cout << setw(20) << right << setprecision(2) << fixed << static_cast<float>(a.vidurkis*0.4 + a.egzaminas*0.6);
+        cout << setw(20) << right << setprecision(2) << fixed << static_cast<float>(a.mediana*0.4 + a.egzaminas*0.6) << endl;
+    }
+}
+
+void Isvedimas_i_faila (vector <Studentas> kursas, int n, int m)
+{
+    ofstream fr ("Rezultatai" + to_string(m) + ".txt");
+    fr << setw(15) << left << "Vardas" << setw(16) << left << "Pavarde";
+    for (int i = 0; i < n; i++)
+    {
+        fr << setw(5) << "ND" + to_string(i+1);
+    }
+    fr << setw(7) << right << "Egz.";
+    fr << setw(20) << right << "Galutinis (Vid.)" << endl;
+    for (auto &a: kursas)
+    {
+        fr << setw(15) << left << a.vardas << setw(16) << left << a.pavarde;
+        for (auto &b: a.pazymys)
+        {
+            fr << setw(5) << b;
+        }
+        fr << setw(7) << right << a.egzaminas;
+        fr << setw(20) << right << setprecision(2) << fixed << static_cast<float>(a.vidurkis*0.4 + a.egzaminas*0.6) << endl;
+    }
+    fr.close();
 }
