@@ -45,9 +45,9 @@ void Skaityk (vector <Studentas> &kursas, int &m);
 void VidurkisIrMediana (int &sum, int &n, Studentas &x, vector <Studentas> &kursas);
 void Rikiuok (vector <Studentas> &kursas);
 void Generuok (Studentas &x, int &n, int &sum, int loginis, int randomizer);
-void Failo_generavimas (vector <Studentas> &kursas, int &m);
+void Failo_generavimas (vector <Studentas> &kursas, int &m, int &n);
 void Isvedimas_i_konsole (vector <Studentas> kursas);
-void Isvedimas_i_faila (vector <Studentas> kursas, int n, int m);
+void Isvedimas_i_faila (vector <Studentas> kursas, int n, string pav);
 void Rusiuok (vector <Studentas> &kursas, vector <Studentas> &kietiakai, vector <Studentas> &vargseliai);
 
 #endif // MYLIB_H_INCLUDED

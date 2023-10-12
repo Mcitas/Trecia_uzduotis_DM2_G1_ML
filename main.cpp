@@ -34,8 +34,10 @@ int main()
     {
         cout << "Kiek studentu kurse?" << endl;
         cin >> m;
-        Failo_generavimas (kursas, m);
+        Failo_generavimas (kursas, m, n);
         Rusiuok (kursas, kietiakai, vargseliai);
+        Isvedimas_i_faila (kietiakai, n, "Kietiakai");
+        Isvedimas_i_faila (vargseliai, n, "Vargseliai");
     }
     return 0;
 }

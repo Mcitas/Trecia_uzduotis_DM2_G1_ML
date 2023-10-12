@@ -173,10 +173,10 @@ void Generuok (Studentas &x, int &n, int &sum, int loginis, int randomizer)
     }
 }
 
-void Failo_generavimas (vector <Studentas> &kursas, int &m)
+void Failo_generavimas (vector <Studentas> &kursas, int &m, int &n)
 {
     Studentas x;
-    int sum, n;
+    int sum;
 
     cout << "Kiek pazymiu turi kiekvienas studentas?" << endl;
     cin >> n;
@@ -188,7 +188,7 @@ void Failo_generavimas (vector <Studentas> &kursas, int &m)
         VidurkisIrMediana (sum, n, x, kursas);
     }
     Rikiuok (kursas);
-    Isvedimas_i_faila (kursas, n, m);
+    Isvedimas_i_faila (kursas, n, to_string(m));
 }
 
 void Isvedimas_i_konsole (vector <Studentas> kursas)
@@ -206,9 +206,9 @@ void Isvedimas_i_konsole (vector <Studentas> kursas)
     }
 }
 
-void Isvedimas_i_faila (vector <Studentas> kursas, int n, int m)
+void Isvedimas_i_faila (vector <Studentas> kursas, int n, string pav)
 {
-    ofstream fr ("Rezultatai" + to_string(m) + ".txt");
+    ofstream fr ("Rezultatai" + pav + ".txt");
     fr << setw(15) << left << "Vardas" << setw(16) << left << "Pavarde";
     for (int i = 0; i < n; i++)
     {
