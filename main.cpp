@@ -3,7 +3,7 @@
 int main()
 {
     Studentas x;
-    vector <Studentas> kursas;
+    vector <Studentas> kursas, kietiakai, vargseliai;
     int m = 0, n = 0, n1, skaicius;
     int sum = 0;
     string y;
@@ -35,6 +35,7 @@ int main()
         cout << "Kiek studentu kurse?" << endl;
         cin >> m;
         Failo_generavimas (kursas, m);
+        Rusiuok (kursas, kietiakai, vargseliai);
     }
     return 0;
 }

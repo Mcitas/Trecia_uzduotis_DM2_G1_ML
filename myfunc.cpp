@@ -129,6 +129,8 @@ void VidurkisIrMediana (int &sum, int &n, Studentas &x, vector <Studentas> &kurs
     x.mediana = x.pazymys[dyd / 2];
     }
     //---------------------------------------------------------------------
+    x.balasm = static_cast<float>(x.mediana*0.4 + x.egzaminas*0.6);
+    x.balasv = static_cast<float>(x.vidurkis*0.4 + x.egzaminas*0.6);
     kursas.push_back(x);
     x.pazymys.clear();
     sum = 0;
@@ -199,8 +201,8 @@ void Isvedimas_i_konsole (vector <Studentas> kursas)
     for (auto &a: kursas)
     {
         cout << setw(15) << left << a.vardas << setw(15) << right << a.pavarde;
-        cout << setw(20) << right << setprecision(2) << fixed << static_cast<float>(a.vidurkis*0.4 + a.egzaminas*0.6);
-        cout << setw(20) << right << setprecision(2) << fixed << static_cast<float>(a.mediana*0.4 + a.egzaminas*0.6) << endl;
+        cout << setw(20) << right << setprecision(2) << fixed << a.balasv;
+        cout << setw(20) << right << setprecision(2) << fixed << a.balasm << endl;
     }
 }
 
@@ -222,7 +224,23 @@ void Isvedimas_i_faila (vector <Studentas> kursas, int n, int m)
             fr << setw(5) << b;
         }
         fr << setw(7) << right << a.egzaminas;
-        fr << setw(20) << right << setprecision(2) << fixed << static_cast<float>(a.vidurkis*0.4 + a.egzaminas*0.6) << endl;
+        fr << setw(20) << right << setprecision(2) << fixed << a.balasv << endl;
     }
     fr.close();
+}
+
+void Rusiuok (vector <Studentas> &kursas, vector <Studentas> &kietiakai, vector <Studentas> &vargseliai)
+{
+
+    for (auto &a: kursas)
+    {
+        if (a.balasv < 5.0)
+        {
+            vargseliai.push_back(a);
+        }
+        else
+        {
+            kietiakai.push_back(a);
+        }
+    }
 }
