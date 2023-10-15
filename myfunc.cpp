@@ -75,13 +75,13 @@ void IrasykRanka (int m, Studentas &x, int &n, int &sum, int i)
 }
 
 
-void Skaityk (vector <Studentas> &kursas, int &m)
+void Skaityk (vector <Studentas> &kursas, int &m, string fpav)
 {
-    ifstream fd ("Rezultatai10000000.txt");
+    ifstream fd (fpav);
     string header, ignor;
     Studentas x;
     int paz, sum = 0, n = 0, raidziu_sk = 0, n1, t = 0;
-
+    m = 0;
     if (!fd.is_open())
     {
     cerr << "Klaida. Failas nerastas." << endl;
@@ -103,12 +103,11 @@ void Skaityk (vector <Studentas> &kursas, int &m)
         {
             fd >> paz;
             x.pazymys.push_back(paz);
-            n++;
             sum += paz;
         }
         fd >> x.egzaminas;
         getline(fd, ignor);
-        VidurkisIrMediana (sum, n, x, kursas);
+        VidurkisIrMediana (sum, n1, x, kursas);
         m++;
     }
     fd.close();
@@ -136,14 +135,40 @@ void VidurkisIrMediana (int &sum, int &n, Studentas &x, vector <Studentas> &kurs
     sum = 0;
 }
 
-bool palyginimas(Studentas &a, Studentas &b)
+bool palyginimas1(Studentas &a, Studentas &b)
 {
-    return a.vardas < b.vardas || a.vardas == b.vardas && a.pavarde < b.pavarde;
+    return a.vardas < b.vardas;
+}
+
+bool palyginimas2(Studentas &a, Studentas &b)
+{
+    return a.pavarde < b.pavarde;
+}
+
+bool palyginimas3(Studentas &a, Studentas &b)
+{
+    return a.balasv < b.balasv;
 }
 
 void Rikiuok(vector<Studentas> &kursas)
 {
-    sort(kursas.begin(), kursas.end(), palyginimas);
+    int loginis;
+
+    cout << "Pagal ka rikiuoti duomenis? (1 - Pagal varda; 2 - Pagal pavarde; 3 - Pagal galutini pazymi)" << endl;
+    cin >> loginis;
+
+    if (loginis == 1)
+    {
+        sort(kursas.begin(), kursas.end(), palyginimas1);
+    }
+    else if (loginis == 2)
+    {
+        sort(kursas.begin(), kursas.end(), palyginimas2);
+    }
+    else
+    {
+        sort(kursas.begin(), kursas.end(), palyginimas3);
+    }
 }
 
 void Generuok (Studentas &x, int &n, int &sum, int loginis, int randomizer)
@@ -173,26 +198,40 @@ void Generuok (Studentas &x, int &n, int &sum, int loginis, int randomizer)
     }
 }
 
-void Failo_generavimas (vector <Studentas> &kursas, int &m, int &n)
+void Failo_generavimas (int &m, int &n)
 {
+    ofstream fr ("Studentai" + to_string(m) + ".txt");
     Studentas x;
     int sum;
 
     cout << "Kiek pazymiu turi kiekvienas studentas?" << endl;
     cin >> n;
     auto start = std::chrono::high_resolution_clock::now();
+
+    fr << setw(15) << left << "Vardas" << setw(16) << left << "Pavarde";
+    for (int i = 0; i < n; i++)
+    {
+        fr << setw(5) << "ND" + to_string(i+1);
+    }
+    fr << setw(7) << right << "Egz." << endl;
+
     for (int i = 0; i < m; i++)
     {
         x.vardas = "Vardas" + to_string(i + 1);
         x.pavarde = "Pavarde" + to_string(i + 1);
+        x.pazymys.clear();
         Generuok (x, n, sum, 2, i);
-        VidurkisIrMediana (sum, n, x, kursas);
+        fr << setw(15) << left << x.vardas << setw(16) << left << x.pavarde;
+        for (auto &b: x.pazymys)
+        {
+            fr << setw(5) << b;
+        }
+        fr << setw(7) << right << x.egzaminas << endl;
     }
-    Rikiuok (kursas);
-    Isvedimas_i_faila (kursas, n, to_string(m));
-    auto end = std::chrono::high_resolution_clock::now(); // Stabdyti
-    std::chrono::duration<double> diff = end-start; // Skirtumas (s)
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = end-start;
     cout << m << " studentu failo generavimas uztruko: "<< diff.count() << " s;" << endl;
+    fr.close();
 }
 
 void Isvedimas_i_konsole (vector <Studentas> kursas)
@@ -210,23 +249,17 @@ void Isvedimas_i_konsole (vector <Studentas> kursas)
     }
 }
 
-void Isvedimas_i_faila (vector <Studentas> kursas, int n, string pav)
+void Isvedimas_i_faila (vector <Studentas> kursas, string pav)
 {
     ofstream fr ("Rezultatai" + pav + ".txt");
-    fr << setw(15) << left << "Vardas" << setw(16) << left << "Pavarde";
-    for (int i = 0; i < n; i++)
-    {
-        fr << setw(5) << "ND" + to_string(i+1);
-    }
-    fr << setw(7) << right << "Egz." << endl;
+    fr << setw(15) << left << "Vardas" << setw(16) << right << "Pavarde" << setw(20) << right << "Galutinis (Vid.)";
+    fr << setw(20) << right << "Galutinis (Med.)" << endl;
+
     for (auto &a: kursas)
     {
-        fr << setw(15) << left << a.vardas << setw(16) << left << a.pavarde;
-        for (auto &b: a.pazymys)
-        {
-            fr << setw(5) << b;
-        }
-        fr << setw(7) << right << a.egzaminas << endl;
+        fr << setw(15) << left << a.vardas << setw(16) << right << a.pavarde;
+        fr << setw(20) << right << setprecision(2) << fixed << a.balasv;
+        fr << setw(20) << right << setprecision(2) << fixed << a.balasm << endl;
     }
     fr.close();
 }

@@ -26,23 +26,16 @@ int main()
     }
     else if (skaicius == 2)
     {
-        Skaityk (kursas, m);
-        Rikiuok (kursas);
-        Isvedimas_i_konsole (kursas);
-    }
-    else
-    {
-        cout << "Kiek studentu kurse?" << endl;
-        cin >> m;
-        Failo_generavimas (kursas, m, n);
-        m = 0;
-        kursas.clear();
-
+        string fpav;
+        cout << "Koks failo pavadinimas?" << endl;
+        cin >> fpav;
         auto start = std::chrono::high_resolution_clock::now();
-        Skaityk (kursas, m);
+        Skaityk (kursas, m, fpav);
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> diff = end-start;
         cout << m << " studentu failo skaitymas uztruko: "<< diff.count() << " s;" << endl;
+
+        Rikiuok (kursas);
 
         start = std::chrono::high_resolution_clock::now();
         Rusiuok (kursas, kietiakai, vargseliai);
@@ -51,11 +44,17 @@ int main()
         cout << m << " studentu failo rusiavimas i du vektorius uztruko: "<< diff1.count() << " s;" << endl;
 
         start = std::chrono::high_resolution_clock::now();
-        Isvedimas_i_faila (kietiakai, n, "Kietiakai");
-        Isvedimas_i_faila (vargseliai, n, "Vargseliai");
+        Isvedimas_i_faila (kietiakai, "Kietiakai");
+        Isvedimas_i_faila (vargseliai, "Vargseliai");
         end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> diff2 = end-start;
         cout << m << " studentu failo isvedimas i du failus uztruko: "<< diff2.count() << " s;" << endl;
+    }
+    else
+    {
+        cout << "Kiek studentu kurse?" << endl;
+        cin >> m;
+        Failo_generavimas (m, n);
     }
     return 0;
 }

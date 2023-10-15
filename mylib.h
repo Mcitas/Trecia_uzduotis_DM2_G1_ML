@@ -42,13 +42,13 @@ float balasv;
 
 int Skaiciaus_Ivedimas (int x1, int x2);
 void IrasykRanka (int m, Studentas &x, int &n, int &sum, int i);
-void Skaityk (vector <Studentas> &kursas, int &m);
+void Skaityk (vector <Studentas> &kursas, int &m, string fpav);
 void VidurkisIrMediana (int &sum, int &n, Studentas &x, vector <Studentas> &kursas);
 void Rikiuok (vector <Studentas> &kursas);
 void Generuok (Studentas &x, int &n, int &sum, int loginis, int randomizer);
-void Failo_generavimas (vector <Studentas> &kursas, int &m, int &n);
+void Failo_generavimas (int &m, int &n);
 void Isvedimas_i_konsole (vector <Studentas> kursas);
-void Isvedimas_i_faila (vector <Studentas> kursas, int n, string pav);
+void Isvedimas_i_faila (vector <Studentas> kursas, string pav);
 void Rusiuok (vector <Studentas> &kursas, vector <Studentas> &kietiakai, vector <Studentas> &vargseliai);
 
 #endif
