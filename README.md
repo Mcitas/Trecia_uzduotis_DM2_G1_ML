@@ -1,91 +1,40 @@
-# Pirma_uzduotis_DM2_G1_ML
+_Vector konteinerio atveju_
 
----------------v0.2 APRAŠAS----------------
+|                                               |     1000    |     10000    | 100000   | 1000000    | 10000000     |
+| --------------------------------------------- |:-----------:|:------------:|:--------:|:----------:|:------------:|
+|  Failo nuskaitymo vidutinis laikas            |  0 s        |   0,03 s     |  0,25 s  |  2,14 s    |   22,8 s     |
+|  Failo išrūšiavimo vidutinis laikas           |  0 s        |   0 s        |  0,01 s  |  0,2 s     |  2 s         |
+|  Kietiakų failo spausdinimo vidutinis laikas  |  0,09 s     |   0,06 s     |  0,43 s  |  4 s       |   42,2 s     |
+|  Vargšelių failo spausdinimo vidutinis laikas |  0,06 s     |   0,03 s     |  0,3 s   |  3,4 s     |   29,2 s     |
+|  **Bendrai užtrukta**                         | ** 0,15 s** |  ** 0,12 s** | ** 1 s** | ** 9,9 s** |  ** 96,5 s** |
 
-1000 studentu generavimo vidurkiai:
+_List konteinerio atveju_
 
-1000 studentu failo skaitymas uztruko: 0.0043617 s;
-1000 studentu failo rusiavimas i du vektorius uztruko: 0.0006530 s;
-1000 kietiaku failo isvedimas uztruko: 0.0063808 s;
-1000 vargseliu failo isvedimas uztruko: 0.0083807 s;
+|                                               |  1000       |  10000       | 100000      | 1000000     | 10000000      |
+| --------------------------------------------- |:-----------:|:------------:|:-----------:|:-----------:|:-------------:|
+|  Failo nuskaitymo vidutinis laikas            |  0 s        |   0,03 s     | 0,6 s       | 3,5 s       |  34,7 s       |
+|  Failo išrūšiavimo vidutinis laikas           |  0 s        |   0 s        | 0,1 s       | 0,84 s      |  8,88 s       |
+|  Kietiakų failo spausdinimo vidutinis laikas  |  0,09 s     |  0,06 s      | 0,8 s       | 4,7 s       |  47,5 s       |
+|  Vargšelių failo spausdinimo vidutinis laikas |  0,07 s     |   0,05 s     | 0,6 s       | 3,8 s       |  32,3 s       |
+|  **Bendrai užtrukta**                         | ** 0,16 s** |  ** 0,14 s** | ** 2,11 s** | ** 12,9 s** |  ** 123,4 s** |
 
-10000 studentu generavimo vidurkiai:
+_Vector konteinerio atveju_
+|            |   1 strategija     |    2 strategija   |   3 strategija   | 
+| ---------- |:------------------:|:-----------------:|:----------------:|
+|  1000      |  0 s               |  0 s              |  0 s             |
+|  10000     |  0 s               |  0,01 s           |  0 s             |
+|  100000    |  0,05 s            |  0,2 s            | 0,01  s          |
+|  1000000   |  0,46 s            |  2,6 s            |  0,2 s           |
+|  10000000  |  4,66 s            |  32 s             |  2 s             |
 
-10000 studentu failo skaitymas uztruko: 0.0329671 s;
-10000 studentu failo rusiavimas i du vektorius uztruko: 0.0070591 s;
-10000 kietiaku failo isvedimas uztruko: 0.0423375 s;
-10000 vargseliu failo isvedimas uztruko: 0.0290672 s;
+_List konteinerio atveju_
+|            |   1 strategija     |    2 strategija   |   3 strategija   | 
+| ---------- |:------------------:|:-----------------:|:----------------:|
+|  1000      |  0 s               | 0  s              |  0 s             |
+|  10000     |  0,01 s            | 0,01  s           |  0 s             |
+|  100000    |  0,12 s            |  0,07 s           |  0,1 s           |
+|  1000000   | 0,47 s             | 0,8  s            | 0,84  s          |
+|  10000000  |  15,4 s            |  8 s              |  8,88 s          |
 
-100000 studentu generavimo vidurkiai:
-
-100000 studentu failo skaitymas uztruko: 0.251756 s;
-100000 studentu failo rusiavimas i du vektorius uztruko: 0.0463225 s;
-100000 kietiaku failo isvedimas uztruko: 0.3856106 s;
-100000 vargseliu failo isvedimas uztruko: 0.2796613 s;
-
-1000000 studentu generavimo vidurkiai:
-
-1000000 studentu failo skaitymas uztruko: 2.2205066 s;
-1000000 studentu failo rusiavimas i du vektorius uztruko: 0.5348916 s;
-1000000 kietiaku failo isvedimas uztruko: 3.89319 s;
-1000000 vargseliu failo isvedimas uztruko: 2.8829633 s;
-
-10000000 studentu generavimo vidurkiai:
-
-10000000 studentu failo skaitymas uztruko: 24.3288666 s;
-10000000 studentu failo rusiavimas i du vektorius uztruko: 5.0963366 s;
-10000000 kietiaku failo isvedimas uztruko: 35.9961 s;
-10000000 vargseliu failo isvedimas uztruko: 27.1169666 s;
-
----------------v0.3 APRAŠAS----------------
-
-Kompiuterio detalių aprašas:
-
-Processor	Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz, 1800 Mhz, 4 Core(s), 8 Logical Processor(s)
-Installed Physical Memory (RAM)	16,0 GB
-Number FriendlyName                   SerialNumber         MediaType
-------------------------------- -------------------------------------
-0      WDC PC SN730 SDBQNTY-512G-1001 001B_448B_41AB_7BDD. SSD
-
-Programos su list konteineriais rezultatai:
-
-1000 studentu generavimo vidurkiai:
-
-1000 studentu failo skaitymas uztruko: 0.0106579 s;
-1000 studentu failo rusiavimas i du sarasus uztruko: 0.008087 s;
-1000 kietiaku failo isvedimas uztruko: 0.0098864 s;
-1000 vargseliu failo isvedimas uztruko: 0.0059914 s;
-
-10000 studentu generavimo vidurkiai:
-
-10000 studentu failo skaitymas uztruko: 0.11464 s;
-10000 studentu failo rusiavimas i du sarasus uztruko: 0.0228389 s;
-10000 kietiaku failo isvedimas uztruko: 0.0813815 s;
-10000 vargseliu failo isvedimas uztruko: 0.0883478 s;
-
-100000 studentu generavimo vidurkiai:
-
-100000 studentu failo skaitymas uztruko: 0.829072 s;
-100000 studentu failo rusiavimas i du sarasus uztruko: 0.2703 s;
-100000 kietiaku failo isvedimas uztruko: 0.982498 s;
-100000 vargseliu failo isvedimas uztruko: 0.566082 s;
-
-1000000 studentu generavimo vidurkiai:
-
-1000000 studentu failo skaitymas uztruko: 13.5845 s;
-1000000 studentu failo rusiavimas i du sarasus uztruko: 2.24851 s;
-1000000 kietiaku failo isvedimas uztruko: 6.80344 s;
-1000000 vargseliu failo isvedimas uztruko: 7.29748 s;
-
-10000000 studentu generavimo vidurkiai:
-
-10000000 studentu failo skaitymas uztruko: 182.672 s;
-10000000 studentu failo rusiavimas i du sarasus uztruko: 30.7347 s;
-10000000 kietiaku failo isvedimas uztruko: 108.409 s;
-10000000 vargseliu failo isvedimas uztruko: 86.3982 s;
-
-<img width="609" alt="image" src="https://github.com/Mcitas/Pirma_uzduotis_DM2_G1_ML/assets/144427355/52e38a23-8541-4dfc-b69c-40b10383229e">
-
-Matome, kad programa sparčiau veikia naudojant vector tipo konteinerius.
 
 
