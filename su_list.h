@@ -47,4 +47,4 @@ void Generuok (Studentas &x, int &n, int &sum, int loginis, int randomizer);
 void Failo_generavimas (int &m, int &n);
 void Isvedimas_i_konsole (list <Studentas> kursas);
 void Isvedimas_i_faila (list <Studentas> kursas, string pav);
-void Rusiuok (list <Studentas> &kursas, list <Studentas> &kietiakai, list <Studentas> &vargseliai);
+void Rusiuok (list <Studentas> &kursas, list <Studentas> &vargseliai);

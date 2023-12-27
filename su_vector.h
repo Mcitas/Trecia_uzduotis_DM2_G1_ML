@@ -47,5 +47,5 @@ void Generuok_v(Studentas_v &x, int &n, int &sum, int loginis, int randomizer);
 void Failo_generavimas_v(int &m, int &n);
 void Isvedimas_i_konsole_v(vector<Studentas_v> kursas);
 void Isvedimas_i_faila_v(vector<Studentas_v> kursas, string pav);
-void Rusiuok_v(vector<Studentas_v> &kursas, vector<Studentas_v> &kietiakai, vector<Studentas_v> &vargseliai);
+void Rusiuok_v(vector<Studentas_v> &kursas, vector<Studentas_v> &vargseliai);
 
