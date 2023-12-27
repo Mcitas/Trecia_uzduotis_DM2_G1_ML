@@ -284,18 +284,30 @@ void Isvedimas_i_faila_v (vector <Studentas_v> kursas, string pav)
     fr.close();
 }
 
-void Rusiuok_v (vector <Studentas_v> &kursas, vector <Studentas_v> &kietiakai, vector <Studentas_v> &vargseliai)
+/*void Rusiuok_v (vector <Studentas_v> &kursas, vector <Studentas_v> &vargseliai)
 {
-
-    for (auto &a: kursas)
+    auto it = kursas.begin();
+    while (it != kursas.end())
     {
-        if (a.balasv < 5.0)
+        if (it -> balasv < 5.0)
         {
-            vargseliai.push_back(a);
+            vargseliai.push_back(*it);
+            it = kursas.erase(it);
         }
         else
         {
-            kietiakai.push_back(a);
+            ++it;
         }
+    }
+}*/
+
+    void Rusiuok_v (vector <Studentas_v> &kursas, vector <Studentas_v> &vargseliai)
+{
+    sort(kursas.rbegin(), kursas.rend(), [](const Studentas_v& a, const Studentas_v& b) {
+        return a.balasv < b.balasv;
+        });
+    while (!kursas.empty() && kursas.back().balasv < 5.0) {
+        vargseliai.push_back(kursas.back());
+        kursas.pop_back();
     }
 }

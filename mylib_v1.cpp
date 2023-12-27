@@ -5,7 +5,7 @@
 void su_vector ()
 {
     Studentas_v x;
-    vector <Studentas_v> kursas, kietiakai, vargseliai, kursas1;
+    vector <Studentas_v> kursas, vargseliai, kursas1;
     int m = 0, n = 0, n1, skaicius, m1 = 0;
     int sum = 0;
     string y;
@@ -41,13 +41,13 @@ void su_vector ()
             Rikiuok_v (kursas);
 
             start = std::chrono::high_resolution_clock::now();
-            Rusiuok_v (kursas, kietiakai, vargseliai);
+            Rusiuok_v (kursas, vargseliai);
             end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> diff1 = end-start;
             cout << m << " studentu failo rusiavimas i du vektorius uztruko: "<< diff1.count() << " s;" << endl;
 
             start = std::chrono::high_resolution_clock::now();
-            Isvedimas_i_faila_v (kietiakai, "Kietiakai");
+            Isvedimas_i_faila_v (kursas, "Kietiakai");
             end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> diff2 = end-start;
             cout << m << " kietiaku failo isvedimas uztruko: "<< diff2.count() << " s;" << endl;
@@ -112,13 +112,13 @@ void su_list ()
             Rikiuok (kursas);
 
             start = std::chrono::high_resolution_clock::now();
-            Rusiuok (kursas, kietiakai, vargseliai);
+            Rusiuok (kursas, vargseliai);
             end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> diff1 = end-start;
             cout << m << " studentu failo rusiavimas i du vektorius uztruko: "<< diff1.count() << " s;" << endl;
 
             start = std::chrono::high_resolution_clock::now();
-            Isvedimas_i_faila (kietiakai, "Kietiakai");
+            Isvedimas_i_faila (kursas, "Kietiakai");
             end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> diff2 = end-start;
             cout << m << " kietiaku failo isvedimas uztruko: "<< diff2.count() << " s;" << endl;

@@ -290,18 +290,19 @@ void Isvedimas_i_faila (list <Studentas> kursas, string pav)
     fr.close();
 }
 
-void Rusiuok (list <Studentas> &kursas, list <Studentas> &kietiakai, list <Studentas> &vargseliai)
+void Rusiuok (list <Studentas> &kursas, list <Studentas> &vargseliai)
 {
-
-    for (auto &a: kursas)
+    auto it = kursas.begin();
+    while (it != kursas.end())
     {
-        if (a.balasv < 5.0)
+        if (it -> balasv < 5.0)
         {
-            vargseliai.push_back(a);
+            vargseliai.push_back(*it);
+            it = kursas.erase(it);
         }
         else
         {
-            kietiakai.push_back(a);
+            ++it;
         }
     }
 }
