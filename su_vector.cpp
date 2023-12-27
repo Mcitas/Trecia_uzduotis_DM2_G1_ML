@@ -284,30 +284,11 @@ void Isvedimas_i_faila_v (vector <Studentas_v> kursas, string pav)
     fr.close();
 }
 
-/*void Rusiuok_v (vector <Studentas_v> &kursas, vector <Studentas_v> &vargseliai)
+void Rusiuok_v (vector <Studentas_v> &kursas, vector <Studentas_v> &vargseliai)
 {
-    auto it = kursas.begin();
-    while (it != kursas.end())
-    {
-        if (it -> balasv < 5.0)
-        {
-            vargseliai.push_back(*it);
-            it = kursas.erase(it);
-        }
-        else
-        {
-            ++it;
-        }
-    }
-}*/
-
-    void Rusiuok_v (vector <Studentas_v> &kursas, vector <Studentas_v> &vargseliai)
-{
-    sort(kursas.rbegin(), kursas.rend(), [](const Studentas_v& a, const Studentas_v& b) {
-        return a.balasv < b.balasv;
+    auto partitionPoint = std::partition(kursas.begin(), kursas.end(), [](const Studentas_v& a) {
+        return a.balasv < 5;
         });
-    while (!kursas.empty() && kursas.back().balasv < 5.0) {
-        vargseliai.push_back(kursas.back());
-        kursas.pop_back();
-    }
+    vargseliai.insert(vargseliai.end(), kursas.begin(), partitionPoint);
+    kursas.erase(kursas.begin(), partitionPoint);
 }

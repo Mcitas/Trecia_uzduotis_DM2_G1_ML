@@ -290,19 +290,11 @@ void Isvedimas_i_faila (list <Studentas> kursas, string pav)
     fr.close();
 }
 
-void Rusiuok (list <Studentas> &kursas, list <Studentas> &vargseliai)
+void Rusiuok(list<Studentas>& kursas, list<Studentas>& vargseliai)
 {
-    auto it = kursas.begin();
-    while (it != kursas.end())
-    {
-        if (it -> balasv < 5.0)
-        {
-            vargseliai.push_back(*it);
-            it = kursas.erase(it);
-        }
-        else
-        {
-            ++it;
-        }
-    }
+    auto partitionPoint = std::partition(kursas.begin(), kursas.end(), [](const Studentas &a) {
+        return a.balasv < 5;
+        });
+    vargseliai.insert(vargseliai.end(), kursas.begin(), partitionPoint);
+    kursas.erase(kursas.begin(), partitionPoint);
 }

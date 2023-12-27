@@ -57,6 +57,10 @@ void su_vector ()
             end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> diff3 = end-start;
             cout << m << " vargseliu failo isvedimas uztruko: "<< diff3.count() << " s;" << endl;
+
+            std::chrono::duration<double> total_duration = diff + diff1 + diff2 + diff3;
+            cout << "--------------------------------" << endl;
+            cout << "VISAS LAIKAS:" << total_duration.count() << " s.";
             break;
         }
         case 3:
@@ -128,6 +132,10 @@ void su_list ()
             end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> diff3 = end-start;
             cout << m << " vargseliu failo isvedimas uztruko: "<< diff3.count() << " s;" << endl;
+
+            std::chrono::duration<double> total_duration = diff + diff1 + diff2 + diff3;
+            cout << "--------------------------------" << endl;
+            cout << "VISAS LAIKAS:" << total_duration.count() << " s.";
             break;
         }
         case 3:
