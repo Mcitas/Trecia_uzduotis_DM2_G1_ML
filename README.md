@@ -1,5 +1,5 @@
 
-Su _struct:
+Su struct:
 |                                                 |   100000           |    1000000        |
 | ----------------------------------------------- |:------------------:|:-----------------:|
 |  Failo nuskaitymo vidutinis laikas              |  0,33 s               |  3,21 s              |
@@ -9,7 +9,7 @@ Su _struct:
 |  **Bendrai užtrukta**                           |  0,88 s            |  8,78 s             |
 Užimama vieta: 119 808 bytes.
 
-Su _class:
+Su class:
 |                                                 |   100000           |    1000000        |
 | ----------------------------------------------- |:------------------:|:-----------------:|
 |  Failo nuskaitymo vidutinis laikas              |  0,43 s               |  4,14 s              |
