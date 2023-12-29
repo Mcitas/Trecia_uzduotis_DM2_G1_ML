@@ -1,3 +1,8 @@
+# **v1.1**
+
+Užduotis: palyginti programos veikimo greitį naudojant struct ir class duomenų sistemizavimo būdus. Abiejais atvejais naudota v1.0 išanalizuota 3 strategija.
+
+Taip pat stebėsime programos veikimo laiką ir .exe failo užimamą vietą keičiant optimizavimo lygius (-o1, -o2, -o3).
 
 Su struct:
 |                                                 |   100000           |    1000000        |
@@ -19,6 +24,8 @@ Su class:
 |  **Bendrai užtrukta**                           |  1,02 s            |  9,9 s             |
 Užimama vieta: 95 232 bytes.
 
+Struct programa veikia šiek tiek greičiau, tačiau užima daugiau vietos.
+
 SU STRUCT:
 Su O1 flag:
 |                                                 |   100000           |    1000000        |
@@ -36,9 +43,9 @@ Su O2 flag:
 | ----------------------------------------------- |:------------------:|:-----------------:|
 |  Failo nuskaitymo vidutinis laikas              |  0,2 s               |  2,07 s              |
 |  Failo išrūšiavimo vidutinis laikas             |  0,007 s               |  0,12 s           |
-|  Kietiakų failo spausdinimo vidutinis laikas    |  0,3 s            |  3 s            |
-|  Vargšelių failo spausdinimo vidutinis laikas   |  0,2 s            |  2,1 s            |
-|  **Bendrai užtrukta**                           |  0,71 s            |  7,3 s             |
+|  Kietiakų failo spausdinimo vidutinis laikas    |  0,3 s            |  2,9 s            |
+|  Vargšelių failo spausdinimo vidutinis laikas   |  0,2 s            |  2 s            |
+|  **Bendrai užtrukta**                           |  0,71 s            |  7,1 s             |
 Užimama vieta: 80 384 bytes.
 
 Su O3 flag:
@@ -50,6 +57,8 @@ Su O3 flag:
 |  Vargšelių failo spausdinimo vidutinis laikas   |  0,2 s            |  2,1 s            |
 |  **Bendrai užtrukta**                           |  0,72 s            |  7,19 s             |
 Užimama vieta: 82 944 bytes.
+
+Programa veikia greičiausiai su -o2 optimizavimo lygiu, o mažiausiai vietos užima su -o1. -o3 yra balansas tarp šių dviejų parametrų.
 
 SU CLASS:
 Su O1 flag:
@@ -81,3 +90,13 @@ Su O3 flag:
 |  Vargšelių failo spausdinimo vidutinis laikas   |  0,21 s            |  2,1 s            |
 |  **Bendrai užtrukta**                           |  0,74 s            |  7,5 s             |
 Užimama vieta: 68 096 bytes.
+
+Tas pats ir su class: programa veikia greičiausiai su -o2 optimizavimo lygiu, o mažiausiai vietos užima su -o1. -o3 yra balansas tarp šių dviejų parametrų.
+
+Lyginant class ir struct rezultatus naudojant optimizavimo lygius, struct visvien veikia šiek tiek greičiau, o mažiau vietos užima class.
+
+Sistemos parametrai:
+
+![image](https://github.com/Mcitas/Antra_uzduotis_DM2_G1_ML/assets/144427355/535590ea-053e-4dd3-ba1d-d38bdab11bf7)
+
+
