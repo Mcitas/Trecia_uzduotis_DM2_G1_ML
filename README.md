@@ -4,7 +4,8 @@ Užduotis: v1.1 kodui pritaikyti Rule of Three taisyklę ir perdengti įvesties/
 
 **Rule of Three**
 
-![image](https://github.com/Mcitas/Antra_uzduotis_DM2_G1_ML/assets/144427355/360a3e04-a507-4c77-ac04-b456259dbca0)
+![image](https://github.com/Mcitas/Antra_uzduotis_DM2_G1_ML/assets/144427355/800f5d0c-6f94-4bf2-8ef3-3e4251dacedd)
+
 
 Šiai taisyklei demonstruoti prie pasirinkimų duomenis įrašyti ranka, skaityti iš failo arba generuoti failą, pridėtas 4 pasirinkimas - demonstruoti rule of three veikimą.
 
