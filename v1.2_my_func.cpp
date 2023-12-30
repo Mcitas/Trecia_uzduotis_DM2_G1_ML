@@ -3,6 +3,9 @@
 Studentas::Studentas() {
     egzas_ = 0;
     elem = new double[egzas_];
+    balasv_ = 0;
+    balasm_ = 0;
+    mediana_ = 0;
 }
 
 Studentas::~Studentas() {
