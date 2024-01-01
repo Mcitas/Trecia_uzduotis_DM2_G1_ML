@@ -34,13 +34,10 @@ using std::copy;
 class Zmogus {
 protected:
     string vardas_, pavarde_;
-    Zmogus() {}
 public:
-    virtual ~Zmogus() {}
-    virtual string getVardas() const { return vardas_; }
-    virtual string getPavarde() const { return pavarde_; }
     virtual void setVardas(string vardas) { vardas_ = vardas; }
     virtual void setPavarde(string pavarde) { pavarde_ = pavarde; }
+    virtual void abstrakcioji() const = 0; // apibreziama kaip abstrakti klase
 };
 
 class Studentas : public Zmogus {
@@ -86,6 +83,7 @@ public:
     void setBalasm(float);
     void clearPazymiai();
 
+    void abstrakcioji() const {} //apibreziama kaip neabstrakti klase
 };
 
 bool pagalVarda(const Studentas&, const Studentas&);
