@@ -40,21 +40,31 @@ private:
     double* elem;
 
 public:
-    Studentas();
+    Studentas() : egzas_(0), balasv_(0), balasm_(0), mediana_(0), elem(nullptr) {};
     ~Studentas();
     Studentas(const Studentas& o);
     Studentas& operator=(const Studentas& o);
 
     friend istream& operator>>(istream& input, Studentas& s) {
         string vardas, pavarde;
+        int egzas, paz;
         input >> vardas >> pavarde;
+        for (int i = 0; i < 5; i++)
+        {
+            input >> paz;
+            s.setPazymiai(paz);
+        }
+        input >> egzas;
         s.setVardas(vardas);
         s.setPavarde(pavarde);
+        s.setEgzas(egzas);
         return input;
     }
 
     friend ostream& operator<<(ostream& output, const Studentas& s) {
         output << setw(15) << left << s.getVardas() << setw(16) << right << s.getPavarde();
+        output << setw(20) << right << setprecision(2) << fixed << s.getBalasv();
+        output << setw(20) << right << setprecision(2) << fixed << s.getBalasm();
         return output;
     }
 
@@ -69,7 +79,6 @@ public:
     void setVardas(string);
     void setPavarde(string);
     void setEgzas(int);
-
     void setMediana(float);
     void setPazymiai(int);
     void setBalasv(float);

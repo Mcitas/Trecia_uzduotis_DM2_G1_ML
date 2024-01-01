@@ -1,16 +1,8 @@
 #include "v1.2_head.h"
 
-Studentas::Studentas() {
-    egzas_ = 0;
-    elem = new double[egzas_];
-    balasv_ = 0;
-    balasm_ = 0;
-    mediana_ = 0;
-}
-
 Studentas::~Studentas() {
     delete[] elem;
-    cout << "Suveikia destruktorius (objektas sunaikintas)" << endl;
+    //cout << "Suveikia destruktorius (objektas sunaikintas)" << endl;
 }
 
 Studentas::Studentas(const Studentas& o) {
@@ -115,9 +107,13 @@ int Skaiciaus_Ivedimas(int x1, int x2)
 
 void IrasykRanka(int m, Studentas& x, int& n, int& sum, int i)
 {
-    string y;
-    cout << "Iveskite " << i + 1 << " studento varda ir pavarde:" << endl;
-    cin >> x; // IVEDIMAS RANKA
+    string vardas, pavarde, y;
+    cout << "Iveskite " << i + 1 << " studento varda:" << endl;
+    cin >> vardas;
+    cout << "Iveskite " << i + 1 << " studento pavarde:" << endl;
+    cin >> pavarde;
+    x.setVardas(vardas);
+    x.setPavarde(pavarde);
     cout << "Ar siam studentui generuoti pazymius? (1 - TAIP, 2 - NE)" << endl;
     int skaicius = Skaiciaus_Ivedimas(1, 2);
     if (skaicius == 1)
@@ -177,9 +173,12 @@ void Skaityk(vector <Studentas>& kursas, int& m, string fpav)
         }
     }
     n1 = (raidziu_sk - 6 - 7 - 3) / 2;
+    string vardas, pavarde;
     int egzas;
-    while (fd >> x) //IVEDIMAS IS FAILO
+    while (fd >> vardas >> pavarde) //IVEDIMAS IS FAILO
     {
+        x.setVardas(vardas);
+        x.setPavarde(pavarde);
         for (int i = 0; i < n1; i++)
         {
             fd >> paz;
@@ -294,7 +293,6 @@ void Failo_generavimas(int& m, int& n)
     srand(static_cast<unsigned>(time(nullptr)));
     ofstream fr("Studentai" + to_string(m) + ".txt");
     Studentas x;
-    int sum;
 
     cout << "Kiek pazymiu turi kiekvienas studentas?" << endl;
     cin >> n;
@@ -344,8 +342,6 @@ void Isvedimas_i_konsole(vector <Studentas> kursas)
     for (auto& a : kursas)
     {
         cout << a; // ISVEDIMAS
-        cout << setw(20) << right << setprecision(2) << fixed << a.getBalasv();
-        cout << setw(20) << right << setprecision(2) << fixed << a.getBalasm();
         cout << setw(20) << right << &a << endl;
     }
 }
@@ -358,9 +354,7 @@ void Isvedimas_i_faila(vector <Studentas> kursas, string pav)
 
     for (auto& a : kursas)
     {
-        fr << a; // ISVEDIMAS
-        fr << setw(20) << right << setprecision(2) << fixed << a.getBalasv();
-        fr << setw(20) << right << setprecision(2) << fixed << a.getBalasm() << endl;
+        fr << a << endl; // ISVEDIMAS
     }
     fr.close();
 }
