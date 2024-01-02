@@ -1,3 +1,7 @@
+# **v2.0**
+
+Pridėtas su Doxygen generuotas programos aprašas apie v1.5 programoje naudojamas klases.
+
 # **v1.5**
 
 Užduotis: v1.2 kode aprašyti naują abstrakčią klasę: Žmogus, kurios išvestinė klasė būtų Studentas.
