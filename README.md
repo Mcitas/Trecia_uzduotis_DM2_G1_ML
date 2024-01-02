@@ -1,6 +1,6 @@
 # **v2.0**
 
-Pridėtas su Doxygen generuotas programos aprašas apie v1.5 programoje naudojamas klases.
+Pridėtas su Doxygen generuotas programos aprašas apie v1.5 programoje naudojamas klases. (parsisiųsti html.zip)
 
 # **v1.5**
 
