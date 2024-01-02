@@ -1,0 +1,70 @@
+﻿  dllmain.cpp
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(89,5): warning C4273: 'Skaiciaus_Ivedimas': inconsistent dll linkage
+  (compiling source file '/dllmain.cpp')
+  C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\Dll.h(115,13):
+  see previous definition of 'Skaiciaus_Ivedimas'
+  
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(120,6): warning C4273: 'IrasykRanka': inconsistent dll linkage
+  (compiling source file '/dllmain.cpp')
+  C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\Dll.h(118,14):
+  see previous definition of 'IrasykRanka'
+  
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(163,6): warning C4273: 'Skaityk': inconsistent dll linkage
+  (compiling source file '/dllmain.cpp')
+  C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\Dll.h(121,14):
+  see previous definition of 'Skaityk'
+  
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(202,6): warning C4273: 'VidurkisIrMediana': inconsistent dll linkage
+  (compiling source file '/dllmain.cpp')
+  C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\Dll.h(124,14):
+  see previous definition of 'VidurkisIrMediana'
+  
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(207,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '/dllmain.cpp')
+  
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(215,31): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(215,31): warning C4244:         with
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(215,31): warning C4244:         [
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(215,31): warning C4244:             _Ty=int
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(215,31): warning C4244:         ]
+  (compiling source file '/dllmain.cpp')
+  
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(237,6): warning C4273: 'Rikiuok': inconsistent dll linkage
+  (compiling source file '/dllmain.cpp')
+  C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\Dll.h(127,14):
+  see previous definition of 'Rikiuok'
+  
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(269,6): warning C4273: 'Generuok': inconsistent dll linkage
+  (compiling source file '/dllmain.cpp')
+  C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\Dll.h(130,14):
+  see previous definition of 'Generuok'
+  
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(296,6): warning C4273: 'Failo_generavimas': inconsistent dll linkage
+  (compiling source file '/dllmain.cpp')
+  C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\Dll.h(133,14):
+  see previous definition of 'Failo_generavimas'
+  
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(301,9): warning C4101: 'sum': unreferenced local variable
+  (compiling source file '/dllmain.cpp')
+  
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(340,6): warning C4273: 'Isvedimas_i_konsole': inconsistent dll linkage
+  (compiling source file '/dllmain.cpp')
+  C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\Dll.h(136,14):
+  see previous definition of 'Isvedimas_i_konsole'
+  
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(357,6): warning C4273: 'Isvedimas_i_faila': inconsistent dll linkage
+  (compiling source file '/dllmain.cpp')
+  C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\Dll.h(139,14):
+  see previous definition of 'Isvedimas_i_faila'
+  
+C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\dllmain.cpp(372,6): warning C4273: 'Rusiuok': inconsistent dll linkage
+  (compiling source file '/dllmain.cpp')
+  C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\Dll1\Dll.h(142,14):
+  see previous definition of 'Rusiuok'
+  
+     Creating library C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\x64\Release\Dll1.lib and object C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\x64\Release\Dll1.exp
+  Generating code
+  Compiler switch has changed, fall back to full compilation.
+  All 489 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Dll1.vcxproj -> C:\Users\User\Desktop\unikas\2 kursas\OBJ_PROG\v3.0\v3.0\x64\Release\Dll1.dll
